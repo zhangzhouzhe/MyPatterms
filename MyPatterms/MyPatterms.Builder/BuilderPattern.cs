@@ -73,6 +73,6 @@ namespace MyPatterms.Builder.Unitest2
     ///     2.多个部件或零件可以装配到一个对象的时候
     ///     3.产品类非常复杂，或者产品类中的调用顺序不同产生了不同的效能
     /// </summary>
-   
+    
 }
     
