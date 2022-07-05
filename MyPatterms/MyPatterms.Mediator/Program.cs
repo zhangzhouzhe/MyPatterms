@@ -45,8 +45,6 @@ namespace 中介者模式
                 ParalleTest();
             });
 
-            var dic = new Dictionary();
-            var bool = dic.ContainsKey("");
 
            
 
