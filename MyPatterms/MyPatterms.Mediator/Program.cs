@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace 中介者模式
 {
@@ -6,27 +9,71 @@ namespace 中介者模式
     {
         static void Main(string[] args)
         {
-            //实例化 具体中介者 联合国安理会
-            UnitedNationsSecurityCouncil UNSC = new UnitedNationsSecurityCouncil();
+            ////实例化 具体中介者 联合国安理会
+            //UnitedNationsSecurityCouncil UNSC = new UnitedNationsSecurityCouncil();
 
-            //实例化一个美国
-            USA c1 = new USA(UNSC);
-            //实例化一个里拉开
-            Iraq c2 = new Iraq(UNSC);
+            ////实例化一个美国
+            //USA c1 = new USA(UNSC);
+            ////实例化一个里拉开
+            //Iraq c2 = new Iraq(UNSC);
 
-            //将两个对象赋值给安理会
-            //具体的中介者必须知道全部的对象
-            UNSC.Colleague1 = c1;
-            UNSC.Colleague2 = c2;
+            ////将两个对象赋值给安理会
+            ////具体的中介者必须知道全部的对象
+            //UNSC.Colleague1 = c1;
+            //UNSC.Colleague2 = c2;
 
-            //美国发表声明，伊拉克接收到
-            c1.Declare("不准研制核武器，否则要发动战争！");
-            //伊拉克发表声明，美国收到信息
-            c2.Declare("我们没有核武器，也不怕侵略。");
-
+            ////美国发表声明，伊拉克接收到
+            //c1.Declare("不准研制核武器，否则要发动战争！");
+            ////伊拉克发表声明，美国收到信息
+            //c2.Declare("我们没有核武器，也不怕侵略。");
+            TestMethod1();
             Console.Read();
         }
+        public static void TestMethod1()
+        {
+            var list = new List<int>();
+            for (int i = 0; i < 10; i++)
+            {
+                list.Add(i);
+            }
+            var ops = new ParallelOptions()
+            {
+                MaxDegreeOfParallelism = 100
+            };
+            Parallel.ForEach(list, ops, (i) =>
+            {
+                ParalleTest();
+            });
+
+            var dic = new Dictionary();
+            var bool = dic.ContainsKey("");
+
+           
+
+        }
+        public static void ParalleTest()
+        {
+            var list = new List<int>();
+            for (int i = 0; i < 1000; i++)
+            {
+                list.Add(i);
+            }
+            var ops = new ParallelOptions()
+            {
+                MaxDegreeOfParallelism = 100
+            };
+            Parallel.ForEach(list, ops, (i) =>
+            {
+                Console.WriteLine($"任务Id:{i},ThreadId:{Thread.CurrentThread.ManagedThreadId}");
+                Thread.Sleep(10);
+            });
+        }
+
     }
+
+
+
+ 
     /// <summary>
     /// 联合国机构抽象类
     /// 抽象中介者
