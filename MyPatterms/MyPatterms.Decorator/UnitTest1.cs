@@ -9,10 +9,47 @@ namespace MyPatterms.Decorator
         [TestMethod]
         public void TestMethod1()
         {
+            var chicken = new Chicken();
+
+            var str1 = chicken.GetDesc();
+
+            var roastFood = new RoastFood(chicken);
+
+            var str2 = roastFood.GetDesc();
+
+            var steamedFood = new SteamedFood(roastFood);
+
+            var str3 = steamedFood.GetDesc();
+        }
+
+
+        [TestMethod]
+        public void ChagePerson()
+        {
+            var persion = new Person() { Age = 10, Name = "Persion" };
+            var staff = new Staff(persion);
+
+            persion.Age = 11;
+
+            Console.WriteLine($"{staff.Person.Age}");
+
         }
     }
 
+    public class Person
+    {
+        public int Age { get; set; }
+        public string Name { get; set; }
+    }
 
+    public struct Staff
+    {
+        public Staff (Person p)
+        {
+            Person = p;
+        }
+        public Person Person { get; }
+    }
     public abstract class Food
     {
         protected string desc;

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPatterms.Builder", "MyPat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPatterms.ChainOfResponsibility", "MyPatterms.ChainOfResponsibility\MyPatterms.ChainOfResponsibility.csproj", "{F3608778-214F-488D-B98C-64804FB63886}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPatterms.Decorator", "MyPatterms.Decorator\MyPatterms.Decorator.csproj", "{B1676CF8-D0EF-4E34-9CAB-F8CEF9C6633A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{F3608778-214F-488D-B98C-64804FB63886}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3608778-214F-488D-B98C-64804FB63886}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3608778-214F-488D-B98C-64804FB63886}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1676CF8-D0EF-4E34-9CAB-F8CEF9C6633A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1676CF8-D0EF-4E34-9CAB-F8CEF9C6633A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1676CF8-D0EF-4E34-9CAB-F8CEF9C6633A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1676CF8-D0EF-4E34-9CAB-F8CEF9C6633A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
