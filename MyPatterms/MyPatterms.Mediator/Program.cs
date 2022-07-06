@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Remoting.Messaging;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -9,24 +10,27 @@ namespace 中介者模式
     {
         static void Main(string[] args)
         {
-            ////实例化 具体中介者 联合国安理会
-            //UnitedNationsSecurityCouncil UNSC = new UnitedNationsSecurityCouncil();
 
-            ////实例化一个美国
-            //USA c1 = new USA(UNSC);
-            ////实例化一个里拉开
-            //Iraq c2 = new Iraq(UNSC);
+            Console.WriteLine($"Thread:{Thread.CurrentThread.ManagedThreadId},Name:{CallContext.GetData("Name")}");
+            CallContext.SetData("Name", "zzz");
+            CallContext.LogicalSetData("Age", "12");
+            for (int i = 0; i < 10; i++)
+            {
+                Task.Run(() =>
+                {
+                    Console.WriteLine($"Thread:{Thread.CurrentThread.ManagedThreadId},Name:{CallContext.GetData("Name")}");
+                    Console.WriteLine($"Thread:{Thread.CurrentThread.ManagedThreadId},Age:{CallContext.LogicalGetData("Age")}");
+                });
 
-            ////将两个对象赋值给安理会
-            ////具体的中介者必须知道全部的对象
-            //UNSC.Colleague1 = c1;
-            //UNSC.Colleague2 = c2;
+            }
+            Console.WriteLine($"Thread:{Thread.CurrentThread.ManagedThreadId},Name:{CallContext.GetData("Name")}");
 
-            ////美国发表声明，伊拉克接收到
-            //c1.Declare("不准研制核武器，否则要发动战争！");
-            ////伊拉克发表声明，美国收到信息
-            //c2.Declare("我们没有核武器，也不怕侵略。");
-            TestMethod1();
+
+
+
+
+
+            //TestMethod1();
             Console.Read();
         }
         public static void TestMethod1()
@@ -46,7 +50,7 @@ namespace 中介者模式
             });
 
 
-           
+
 
         }
         public static void ParalleTest()
@@ -71,7 +75,7 @@ namespace 中介者模式
 
 
 
- 
+
     /// <summary>
     /// 联合国机构抽象类
     /// 抽象中介者

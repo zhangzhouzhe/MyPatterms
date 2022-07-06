@@ -28,10 +28,10 @@ namespace MyPatterms.Decorator
         {
             var persion = new Person() { Age = 10, Name = "Persion" };
             var staff = new Staff(persion);
+            staff.Person.Age = 12;
+       
 
-            persion.Age = 11;
-
-            Console.WriteLine($"{staff.Person.Age}");
+            Console.WriteLine($"{persion.Age}");
 
         }
     }
@@ -44,7 +44,7 @@ namespace MyPatterms.Decorator
 
     public struct Staff
     {
-        public Staff (Person p)
+        public Staff(Person p)
         {
             Person = p;
         }
